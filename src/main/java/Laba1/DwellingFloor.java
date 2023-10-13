@@ -62,7 +62,7 @@ public class DwellingFloor {
         }
     }
 
-    public void deleteFlat(int index){//спросить
+    public void deleteFlat(int index){
         Flat[] newFlats = new Flat[DwellingFloorArr.length - 1];
         for (int i = 0, j = 0; i < DwellingFloorArr.length; i++) {
             if (i != index) {

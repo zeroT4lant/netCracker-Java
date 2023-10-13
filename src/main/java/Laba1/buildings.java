@@ -39,12 +39,14 @@ public class buildings {
         System.out.println("Квартира после изменения "+ testDwelling.getFlat(0));
         //---------------------------------------------------
         System.out.println("-------------------------------------");
-        System.out.println("Добавляем 9 индекс: "+ testDwelling.getFlat(9));
+        System.out.println("Проверяем 9 индекс: "+testDwelling.getFlat(9));
+        System.out.println("Добавляем 9 индекс...");
         testDwelling.addFlat(9,Flat5);
-        System.out.println("Проверяем 9 индекс: "+ testDwelling.getFlat(8));
-        System.out.println("Удаляем 9 индекс...");
-        testDwelling.deleteFlat(8);
-        System.out.println("Квартира после удаления "+ testDwelling.getFlat(8));
+        System.out.println("Проверяем 9 индекс: "+testDwelling.getFlat(9));
+        System.out.println("Проверяем 4 индекс: "+ testDwelling.getFlat(4));
+        System.out.println("Удаляем 4 индекс...");
+        testDwelling.deleteFlat(4);
+        System.out.println("Квартира после удаления "+ testDwelling.getFlat(4));
         System.out.println("Самая большая по площади квартира: " + testDwelling.getBestFlatBySquare());
 
 
