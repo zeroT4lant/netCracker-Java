@@ -86,9 +86,4 @@ public class DwellingFloorTest {
         Assertions.assertEquals(25,res.getSquare());
     }
 
-    @Test
-    void test_xd(){
-
-    }
-
 }
