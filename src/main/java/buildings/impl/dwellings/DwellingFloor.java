@@ -1,7 +1,11 @@
-package Laba1;
+package buildings.impl.dwellings;
 
-public class DwellingFloor {
-    Flat[] DwellingFloorArr;
+import buildings.impl.flats.Flat;
+import buildings.interfaces.Floor;
+import buildings.interfaces.Space;
+
+public class DwellingFloor implements Floor {
+    Space[] DwellingFloorArr;
     public DwellingFloor (int flatCount){//в аргументе количество квартир
         DwellingFloorArr = new Flat[flatCount];
         for (int i = 0;i<flatCount;i++){
@@ -9,7 +13,7 @@ public class DwellingFloor {
         }
     }
 
-    public DwellingFloor(Flat[] flatArr){//в аргументе сами квартиры
+    public DwellingFloor(Space[] flatArr){//в аргументе сами квартиры
         DwellingFloorArr = flatArr;
     }
 
@@ -33,15 +37,16 @@ public class DwellingFloor {
         return sumQuantity;
     }
 
-    public Flat[] getFlats() {
+    public Space[] getFlats() {
         return DwellingFloorArr;
     }
 
-    public Flat getFlat(int index){
+    public Space getFlat(int index){
         return DwellingFloorArr[index];
     }
 
-    public void setFlat(int index,Flat newFlat){
+    @Override
+    public void setFlat(int index, Space newFlat) {
         if (index <= DwellingFloorArr.length){
             DwellingFloorArr[index] = newFlat;
         }else {
@@ -49,11 +54,10 @@ public class DwellingFloor {
         }
     }
 
-
-    //work!!!
-    public void addFlat(int index,Flat newFlat){//добавление квартиры по индексу - работает по этажу
+    @Override
+    public void addFlat(int index, Space newFlat) {
         if (index > DwellingFloorArr.length-1){
-            var newArr = new Flat[index+1];
+            var newArr = new Space[index+1];
             for (int i = 0;i<DwellingFloorArr.length;i++){
                 newArr[i] = DwellingFloorArr[i];
             }
@@ -63,7 +67,7 @@ public class DwellingFloor {
     }
 
     public void deleteFlat(int index){
-        Flat[] newFlats = new Flat[DwellingFloorArr.length - 1];
+        Space[] newFlats = new Space[DwellingFloorArr.length - 1];
         for (int i = 0, j = 0; i < DwellingFloorArr.length; i++) {
             if (i != index) {
                 newFlats[j] = DwellingFloorArr[i];
@@ -73,9 +77,9 @@ public class DwellingFloor {
         DwellingFloorArr = newFlats;
     }
 
-    public Flat getBestSquare(){
-        Flat bestFlat = getFlat(0);
-        for (Flat room : DwellingFloorArr){
+    public Space getBestSquare(){
+        Space bestFlat = getFlat(0);
+        for (Space room : DwellingFloorArr){
             if (room.getSquare() > bestFlat.getSquare()){
                 bestFlat = room;
             }

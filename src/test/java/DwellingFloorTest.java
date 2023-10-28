@@ -1,12 +1,13 @@
-import Laba1.DwellingFloor;
-import Laba1.Flat;
+import buildings.impl.dwellings.DwellingFloor;
+import buildings.impl.flats.Flat;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class DwellingFloorTest {
+    //до 5 задания работает
 
     Flat Flat1 = new Flat(16,4);//16 - 4
-    Flat Flat2 = new Flat(25);// 25-2
+    Flat Flat2 = new Flat(25,2);// 25-2
     Flat Flat3 = new Flat(13,23); //13-23
     Flat[] DwFloor1 = new Flat[]{Flat1,Flat2,Flat3};
     DwellingFloor Stage1 = new DwellingFloor(DwFloor1);
@@ -48,7 +49,7 @@ public class DwellingFloorTest {
 
     @Test
     void test_getFlats(){//check
-        Flat[] res = Stage1.getFlats();
+        Flat[] res = (Flat[]) Stage1.getFlats();
 
         Assertions.assertEquals(DwFloor1,res);
     }
